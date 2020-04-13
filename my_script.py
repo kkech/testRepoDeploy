@@ -1,7 +1,20 @@
-# Sample taken from pyStrich GitHub repository
-# https://github.com/mmulqueen/pyStrich
-from pystrich.datamatrix import DataMatrixEncoder
+from flask import Flask, jsonify
+app = Flask(__name__)
 
-encoder = DataMatrixEncoder('This is a DataMatrix.')
-encoder.save('./datamatrix_test.png')
-print(encoder.get_ascii())
+
+apps = [
+    results:{
+        'name':'test',
+        'gitUrl':'https://github.com/kkech/testRepoDeploy.git',
+        'version':'1.0'
+    },
+    {
+      'name':'test',
+      'gitUrl':'https://github.com/kkech/testRepoDeploy.git',
+      'version':'1.0'
+    }
+]
+
+@app.route('/getVersion')
+def hello_world():
+    return jsonify({"apps": apps})

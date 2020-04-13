@@ -1,20 +1,6 @@
-from flask import Flask, jsonify
+from flask import Flask
 app = Flask(__name__)
 
-
-apps = [
-    results:{
-        'name':'test',
-        'gitUrl':'https://github.com/kkech/testRepoDeploy.git',
-        'version':'1.0'
-    },
-    {
-      'name':'test',
-      'gitUrl':'https://github.com/kkech/testRepoDeploy.git',
-      'version':'1.0'
-    }
-]
-
-@app.route('/getVersion')
+@app.route('/')
 def hello_world():
-    return jsonify({"apps": apps})
+    return 'Hello, World!'
